@@ -1,0 +1,25 @@
+# compiled output
+*.o
+*.out
+*.exe
+vehicle_ecu
+
+# build directories
+build/
+bin/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# test reports
+test_report.txt
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+*.swp
+*.swo
