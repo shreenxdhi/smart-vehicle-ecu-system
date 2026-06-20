@@ -13,8 +13,9 @@ __pycache__/
 *.pyc
 *.pyo
 
-# test reports
+# test reports & logs
 test_report.txt
+dtc_log.txt
 
 # macOS
 .DS_Store

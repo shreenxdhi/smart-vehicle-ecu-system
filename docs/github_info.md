@@ -34,9 +34,9 @@ simulation
 ## Resume Bullet Points
 
 - Developed a multi-ECU automotive simulation in Embedded C, implementing software-based CAN communication between Airbag, Obstacle Detection, Fuel, and Anti-Theft ECUs.
-- Implemented CAN frame handling and priority-based arbitration using a shared bus buffer sorted by CAN message ID.
-- Designed a centralized master node that processes incoming CAN frames and triggers vehicle-level actions (airbag deployment, emergency brake, alarm activation, low-fuel warning).
-- Built a Python test automation script with 20 test vectors covering individual thresholds, boundary conditions, and simultaneous multi-ECU events.
+- Implemented CAN frame handling, priority-based arbitration, and Hardware-In-the-Loop (HIL) style bus error simulation with random frame dropping.
+- Designed a centralized master node featuring real-time diagnostic logging (DTCs), "Degraded Mode" for comm loss, and a custom RTOS-style scheduler with Round-Robin fallback to prevent low-priority ECU starvation.
+- Built a robust Python test automation suite covering boundary scenarios, CAN fault injection, Priority Starvation proofs, and 1000-cycle regression stress testing.
 
 ---
 

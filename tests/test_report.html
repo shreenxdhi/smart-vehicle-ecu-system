@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>HIL Automated Test Report</title>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e2e; color: #cdd6f4; margin: 2rem; }
+    h1 { color: #89b4fa; border-bottom: 2px solid #45475a; padding-bottom: 0.5rem; }
+    .summary { background-color: #313244; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; display: flex; gap: 2rem; }
+    .summary div { flex: 1; }
+    .summary strong { color: #bac2de; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: #181825; box-shadow: 0 4px 6px rgba(0,0,0,0.3); border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #313244; }
+    th { background-color: #45475a; color: #f38ba8; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9em; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background-color: #313244; transition: 0.2s; }
+    .pass { color: #a6e3a1; font-weight: bold; }
+    .fail { color: #f38ba8; font-weight: bold; }
+    .footer { margin-top: 2rem; font-size: 0.8em; color: #6c7086; text-align: center; }
+</style>
+</head>
+<body>
+    <h1>Vehicle ECU - Automated HIL Test Report</h1>
+    <div class="summary">
+        <div><p><strong>Timestamp:</strong> 2026-06-17 13:39:19</p></div>
+        <div><p><strong>Total Tests:</strong> 20</p></div>
+        <div><p><strong>Passed:</strong> <span class="pass">20</span></p></div>
+        <div><p><strong>Failed:</strong> <span class="fail">0</span></p></div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Test #</th>
+                <th>Impact</th>
+                <th>Distance</th>
+                <th>Fuel</th>
+                <th>Tamper</th>
+                <th>Expected Output</th>
+                <th>Actual Output</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+        <td>01</td>
+        <td>81</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>DEPLOY AIRBAG</td>
+        <td>DEPLOY AIRBAG</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>02</td>
+        <td>90</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>DEPLOY AIRBAG</td>
+        <td>DEPLOY AIRBAG</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>03</td>
+        <td>100</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>DEPLOY AIRBAG</td>
+        <td>DEPLOY AIRBAG</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>04</td>
+        <td>80</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>05</td>
+        <td>20</td>
+        <td>19 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>EMERGENCY BRAKE</td>
+        <td>EMERGENCY BRAKE</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>06</td>
+        <td>20</td>
+        <td>10 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>EMERGENCY BRAKE</td>
+        <td>EMERGENCY BRAKE</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>07</td>
+        <td>20</td>
+        <td>5 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>EMERGENCY BRAKE</td>
+        <td>EMERGENCY BRAKE</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>08</td>
+        <td>20</td>
+        <td>20 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>09</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>14%</td>
+        <td>0</td>
+        <td>LOW FUEL WARNING</td>
+        <td>LOW FUEL WARNING</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>10</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>10%</td>
+        <td>0</td>
+        <td>LOW FUEL WARNING</td>
+        <td>LOW FUEL WARNING</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>11</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>5%</td>
+        <td>0</td>
+        <td>LOW FUEL WARNING</td>
+        <td>LOW FUEL WARNING</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>12</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>15%</td>
+        <td>0</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>13</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>1</td>
+        <td>ALARM ON</td>
+        <td>ALARM ON</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>14</td>
+        <td>50</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>1</td>
+        <td>ALARM ON</td>
+        <td>ALARM ON</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>15</td>
+        <td>20</td>
+        <td>50 cm</td>
+        <td>70%</td>
+        <td>0</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>16</td>
+        <td>50</td>
+        <td>50 cm</td>
+        <td>50%</td>
+        <td>0</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td>ALL SYSTEMS NORMAL</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>17</td>
+        <td>90</td>
+        <td>10 cm</td>
+        <td>8%</td>
+        <td>1</td>
+        <td>DEPLOY AIRBAG</td>
+        <td>DEPLOY AIRBAG</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>18</td>
+        <td>90</td>
+        <td>10 cm</td>
+        <td>8%</td>
+        <td>1</td>
+        <td>EMERGENCY BRAKE</td>
+        <td>EMERGENCY BRAKE</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>19</td>
+        <td>90</td>
+        <td>10 cm</td>
+        <td>8%</td>
+        <td>1</td>
+        <td>LOW FUEL WARNING</td>
+        <td>LOW FUEL WARNING</td>
+        <td class='pass'>PASS</td>
+    </tr>
+<tr>
+        <td>20</td>
+        <td>90</td>
+        <td>10 cm</td>
+        <td>8%</td>
+        <td>1</td>
+        <td>ALARM ON</td>
+        <td>ALARM ON</td>
+        <td class='pass'>PASS</td>
+    </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        Generated by ECU Automated Testing Suite
+    </div>
+</body>
+</html>

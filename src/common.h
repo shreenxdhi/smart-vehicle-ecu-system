@@ -28,5 +28,6 @@ typedef struct {
 } CAN_Frame;
 
 #define MAX_ECU_COUNT 4
+#define MAX_CAN_FRAMES 8
 
 #endif
