@@ -1,0 +1,8 @@
+{
+  "host": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.14.8",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "binary_sha256": "6be62891486b489986a9f7f79d354bcfec12c378f0ac3569fe38cfc3b2e5f13b",
+  "validated_locally": true,
+  "hosted_ci_executed": false
+}

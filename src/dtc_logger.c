@@ -21,7 +21,11 @@ void log_dtc(const char *dtc_code)
 
     char time_str[64];
     struct tm *tm_info = localtime(&record.timestamp);
-    strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", tm_info);
+    if (!tm_info || !strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", tm_info)) {
+        fclose(fp);
+        fputs("[LOGGER ERROR] Could not format timestamp.\n", stderr);
+        return;
+    }
 
     fprintf(fp, "[%s] DTC Logged: %s\n", time_str, record.code);
     fclose(fp);

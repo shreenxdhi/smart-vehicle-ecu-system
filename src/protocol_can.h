@@ -8,7 +8,8 @@ extern int can_bus_count;
 extern double g_can_error_rate;
 extern int g_round_robin_fallback;
 
-int  can_send(CAN_Frame *frame);
+void can_reset(unsigned int seed);
+int  can_send(const CAN_Frame *frame);
 int  can_receive(CAN_Frame *frames, int *count);
 void display_can_frame(const CAN_Frame *frame);
 

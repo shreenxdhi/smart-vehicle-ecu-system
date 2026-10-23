@@ -43,6 +43,9 @@ def main():
         print("FAIL: Master node output did not report unknown CAN ID.")
         sys.exit(1)
 
+    assert "INVALID CAN FRAME REJECTED" in output
+    assert output.count("INVALID PAYLOAD") == 2
+    assert "DEPLOY AIRBAG" not in output
     # Ensure system still reports normal status for the other 4 ECUs
     if "ALL SYSTEMS NORMAL" in output:
         print("PASS: Valid ECU data was still processed correctly.")

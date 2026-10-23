@@ -1,0 +1,224 @@
+$ make clean
+rm -f src/*.o vehicle_ecu dtc_log.txt
+rm -rf build
+$ make test CC=clang
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/master_node.c -o src/master_node.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/ecu_airbag.c -o src/ecu_airbag.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/ecu_obstacle.c -o src/ecu_obstacle.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/ecu_fuel.c -o src/ecu_fuel.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/ecu_antitheft.c -o src/ecu_antitheft.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/protocol_can.c -o src/protocol_can.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/protocol_uart.c -o src/protocol_uart.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/protocol_i2c.c -o src/protocol_i2c.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/dtc_logger.c -o src/dtc_logger.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -c src/vehicle_logic.c -o src/vehicle_logic.o
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -o vehicle_ecu src/master_node.o src/ecu_airbag.o src/ecu_obstacle.o src/ecu_fuel.o src/ecu_antitheft.o src/protocol_can.o src/protocol_uart.o src/protocol_i2c.o src/dtc_logger.o src/vehicle_logic.o
+mkdir -p build
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -fsanitize=address,undefined tests/test_core.c src/protocol_can.c src/vehicle_logic.c -o build/test-core
+./build/test-core
+[CAN ERROR] Invalid CAN frame rejected
+[CAN ERROR] Invalid CAN frame rejected
+[CAN ERROR] Invalid CAN frame rejected
+[CAN TX] ID: 0x107 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x106 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x105 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x104 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x103 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x102 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x101 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 90
+[CAN ERROR] Bus full. Dropping ID=0x100
+[CAN RX] Received 3 frame(s) (5 left in buffer)
+[CAN RX] Received 5 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x130 | DLC: 1 | Data: 90
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 90
+[CAN RX] Received 1 frame(s) (1 left in buffer)
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 90
+[CAN RX] Received 1 frame(s) (1 left in buffer)
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 90
+[CAN RX] Received 1 frame(s) (1 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN BUS] ERROR: Frame dropped by fault model
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN RX] Received 1 frame(s) (0 left in buffer)
+PASS core: transport bounds, capacity, priority, partial draining, fairness, 1024 payload values, deterministic faults
+clang -std=c99 -Wall -Wextra -Werror -Wpedantic -g -Isrc -fsanitize=address,undefined src/master_node.c src/ecu_airbag.c src/ecu_obstacle.c src/ecu_fuel.c src/ecu_antitheft.c src/protocol_can.c src/protocol_uart.c src/protocol_i2c.c src/dtc_logger.c src/vehicle_logic.c -o build/vehicle-sanitized
+python3 tests/test_sanitized.py
+PASS 6 full-application scenarios under ASan/UBSan
+python3 tests/test_vehicle_system.py
+
+  Test #01  PASS  (DEPLOY AIRBAG)
+  Test #02  PASS  (DEPLOY AIRBAG)
+  Test #03  PASS  (DEPLOY AIRBAG)
+  Test #04  PASS  (ALL SYSTEMS NORMAL)
+  Test #05  PASS  (EMERGENCY BRAKE)
+  Test #06  PASS  (EMERGENCY BRAKE)
+  Test #07  PASS  (EMERGENCY BRAKE)
+  Test #08  PASS  (ALL SYSTEMS NORMAL)
+  Test #09  PASS  (LOW FUEL WARNING)
+  Test #10  PASS  (LOW FUEL WARNING)
+  Test #11  PASS  (LOW FUEL WARNING)
+  Test #12  PASS  (ALL SYSTEMS NORMAL)
+  Test #13  PASS  (ALARM ON)
+  Test #14  PASS  (ALARM ON)
+  Test #15  PASS  (ALL SYSTEMS NORMAL)
+  Test #16  PASS  (ALL SYSTEMS NORMAL)
+  Test #17  PASS  (DEPLOY AIRBAG)
+  Test #18  PASS  (EMERGENCY BRAKE)
+  Test #19  PASS  (LOW FUEL WARNING)
+  Test #20  PASS  (ALARM ON)
+
+----------------------------
+  Tests Run : 20
+  Passed    : 20
+  Failed    : 0
+----------------------------
+  -> Detailed HTML report written to: /Users/shreenidhivasishta/Documents/ecu/tests/test_report.html
+
+python3 tests/test_fault_injection.py
+--- Running Fault Injection Test ---
+--- Output from ECU Simulation ---
+Starting ECU simulation...
+
+[ECU: Airbag] Impact sensor: 50
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 50
+[ECU: Obstacle] Distance sensor: 50 cm
+[CAN TX] ID: 0x110 | DLC: 1 | Data: 50
+[ECU: Anti-Theft] Tamper flag: 0
+[CAN TX] ID: 0x120 | DLC: 1 | Data: 0
+[ECU: Fuel] Tank level: 50%
+[CAN TX] ID: 0x130 | DLC: 1 | Data: 50
+[TEST] Injecting malformed CAN frame...
+[CAN ERROR] Invalid CAN frame rejected
+[CAN TX] ID: 0x7FF | DLC: 1 | Data: 255
+[CAN TX] ID: 0x100 | DLC: 0 | Data: 0
+[CAN TX] ID: 0x100 | DLC: 1 | Data: 255
+[CAN RX] Received 7 frame(s) (0 left in buffer)
+
+--- Processing 7 CAN Frames ---
+[MASTER] Invalid payload ID 0x100
+[MASTER] Invalid payload ID 0x100
+[MASTER] Unknown CAN ID 0x7FF
+
+--- SYSTEM STATUS ---
+  ALL SYSTEMS NORMAL
+
+--- Protocol Demos ---
+[UART TX] "All ECUs online"
+[I2C TX] Addr: 0x3C | Data: 0x01
+----------------------------------
+
+PASS: Master node safely handled unknown CAN ID without crashing.
+PASS: Valid ECU data was still processed correctly.
+
+Fault Injection Test: PASSED.
+python3 tests/test_stress.py
+--- Running Stress/Regression Test (1000 cycles) ---
+....................
+
+Stress Test: PASSED. Zero crashes or dropped frames across 1000 simultaneous trigger events.
+python3 tests/test_starvation.py
+--- Running Priority Starvation Test ---
+PASS: Fuel ECU was successfully starved by high-priority Airbag spam (Strict Priority).
+
+--- Running Round-Robin Fallback Test ---
+PASS: Fuel ECU was successfully processed! Round-Robin scheduler prevented starvation.
+
+Starvation Testing: PASSED.
+python3 tests/test_cli.py
+PASS CLI: 19 invalid inputs, three reproducible seeds, total communication loss
